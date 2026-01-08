@@ -365,7 +365,7 @@
         <div class="header">
           <div class="header-content">
             <div class="profile-image">
-              <img src="images/profile.jpeg" alt="安部健介" class="profile-photo" />
+              <img src="images/profile.webp" alt="安部健介" class="profile-photo" />
             </div>
             <h1 class="name">安部健介</h1>
             <p class="english-name">Kensuke Abe</p>
@@ -542,12 +542,13 @@
               <button class="tab-button" onclick="showProject('gamelab')">GameLab</button>
               <button class="tab-button" onclick="showProject('pricesphere')">PriceSphere</button>
               <button class="tab-button" onclick="showProject('overbuilder')">Overbuilder</button>
+              <button class="tab-button" onclick="showProject('pictura')">Pictura</button>
             </div>
 
             <div id="gamercoach" class="tab-content active">
               <div class="project-detail">
                 <div class="project-images">
-                  <img src="images/gamercoach.jpg" alt="GamerCoach" />
+                  <img src="images/gamercoach/gamercoach.webp" alt="GamerCoach" />
                 </div>
                 <div class="project-title">GamerCoach</div>
                 <div class="project-year">2018年</div>
@@ -566,7 +567,7 @@
             <div id="gamelab" class="tab-content">
               <div class="project-detail">
                 <div class="project-images">
-                  <img src="images/gamelab-logo.jpg" alt="GameLab ロゴ" />
+                  <img src="images/gamelab/gamelab-logo.webp" alt="GameLab ロゴ" />
                 </div>
                 <div class="project-title">GameLab</div>
                 <div class="project-year">2020年</div>
@@ -585,8 +586,8 @@
             <div id="pricesphere" class="tab-content">
               <div class="project-detail">
                 <div class="project-images">
-                  <img src="images/pricesphere-top.webp" alt="PriceSphere トップページ" />
-                  <img src="images/pricesphere-detail.webp" alt="PriceSphere 詳細ページ" />
+                  <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere トップページ" />
+                  <img src="images/pricesphere/pricesphere-detail.webp" alt="PriceSphere 詳細ページ" />
                 </div>
                 <div class="project-title">PriceSphere</div>
                 <div class="project-year">2025年</div>
@@ -610,8 +611,8 @@
             <div id="overbuilder" class="tab-content">
               <div class="project-detail">
                 <div class="project-images">
-                  <img src="images/overbuilder-ogp.webp" alt="Overbuilder OGP" />
-                  <img src="images/overbuilder-detail.webp" alt="Overbuilder 詳細ページ" />
+                  <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP" />
+                  <img src="images/overbuilder/overbuilder-detail.webp" alt="Overbuilder 詳細ページ" />
                 </div>
                 <div class="project-title">Overbuilder</div>
                 <div class="project-year">2025年</div>
@@ -625,6 +626,29 @@
                 </div>
               </div>
             </div>
+
+            <div id="pictura" class="tab-content">
+              <div class="project-detail">
+                <div class="project-images">
+                  <img src="images/pictura/pictura-top.webp" alt="Pictura トップページ" />
+                  <img src="images/pictura/pictura-detail.webp" alt="Pictura 詳細ページ" />
+                </div>
+                <div class="project-title">Pictura</div>
+                <div class="project-year">2026年</div>
+                <div class="project-description">AIサムネイル生成サービス。Youtuberやコンテンツクリエイターのサムネイル制作をAIで支援</div>
+                <div class="tech-stack">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">supabase</span>
+                  <span class="tech-tag">Stripe</span>
+                  <span class="tech-tag">Gemini API</span>
+                  <span class="tech-tag">Nano-Banana</span>
+                </div>
+                <div class="project-links">
+                  <a href="https://pictura.tech" class="link" target="_blank">サービスサイト</a>
+                  <a href="https://prtimes.jp/main/html/rd/p/000000002.000160309.html" class="link" target="_blank">プレスリリース</a>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </div>
@@ -634,7 +658,7 @@
   <script>
     function showProject(projectId) {
       // 開発したプロジェクト用のタブ切り替え
-      const projectTabContents = document.querySelectorAll("#gamercoach, #gamelab, #pricesphere, #overbuilder");
+      const projectTabContents = document.querySelectorAll("#gamercoach, #gamelab, #pricesphere, #overbuilder, #pictura");
       projectTabContents.forEach((content) => {
         content.classList.remove("active");
       });
