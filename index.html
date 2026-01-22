@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -429,6 +429,13 @@
                 <div class="title">個人事業主</div>
                 <div class="description">Python、PHP、AWS、Azureをはじめとするクラウドを利用したサービス開発。</div>
               </div>
+              <div class="timeline-item">
+                <div class="period">2025年4月〜現在</div>
+                <div class="title">合同会社サムライトレード 代表取締役</div>
+                <div class="description">
+                  ソフトウェア開発、物販を行う会社の代表<br />会社で開発したプロジェクトは下記の「開発したプロジェクト」を参考
+                </div>
+              </div>
             </div>
           </section>
 
@@ -437,7 +444,7 @@
             <h2 class="section-title">従事したプロジェクト</h2>
             <p class="section-description">主にクラウドアーキテクチャの構築とPython, JavaScript, PHPでの機能追加を行っています。</p>
 
-            <div class="project-tabs">
+            <div class="project-tabs work-tabs">
               <button class="tab-button active" onclick="showWorkProject('nlp')">自然言語処理</button>
               <button class="tab-button" onclick="showWorkProject('aviation')">航空系データ処理</button>
               <button class="tab-button" onclick="showWorkProject('fastapi')">FastAPI開発</button>
@@ -537,11 +544,12 @@
             <h2 class="section-title">開発したプロジェクト</h2>
             <p class="section-description">個人開発、もしくは私が代表の会社で開発していたプロジェクト一覧</p>
 
-            <div class="project-tabs">
+            <div class="project-tabs dev-tabs">
               <button class="tab-button active" onclick="showProject('gamercoach')">GamerCoach</button>
               <button class="tab-button" onclick="showProject('gamelab')">GameLab</button>
               <button class="tab-button" onclick="showProject('pricesphere')">PriceSphere</button>
               <button class="tab-button" onclick="showProject('overbuilder')">Overbuilder</button>
+              <button class="tab-button" onclick="showProject('private-media')">非公開のメディア</button>
               <button class="tab-button" onclick="showProject('pictura')">Pictura</button>
             </div>
 
@@ -627,6 +635,29 @@
               </div>
             </div>
 
+            <div id="private-media" class="tab-content">
+              <div class="project-detail">
+                <div class="project-title">非公開のメディア</div>
+                <div class="project-year">2025年</div>
+                <div class="project-description">
+                  アダルトのため非公表。<br />
+                  特定の人物に関する情報を複数のサイトからスクレイピング<br />
+                  その情報がどの人物に関する言及なのかをAIで抽出 人物の読みもAIで取得<br />
+                  それぞれのサイトの情報をフォーマットを整えサービス上に表示。<br />
+                  ECSでそれらの処理を1日1回実行。<br /><br />
+                  人物 : 3万人以上<br />
+                  投稿数 : 800万件以上
+                </div>
+                <div class="tech-stack">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">supabase</span>
+                  <span class="tech-tag">CloudFormation</span>
+                  <span class="tech-tag">ECS</span>
+                  <span class="tech-tag">python</span>
+                </div>
+              </div>
+            </div>
+
             <div id="pictura" class="tab-content">
               <div class="project-detail">
                 <div class="project-images">
@@ -658,12 +689,12 @@
   <script>
     function showProject(projectId) {
       // 開発したプロジェクト用のタブ切り替え
-      const projectTabContents = document.querySelectorAll("#gamercoach, #gamelab, #pricesphere, #overbuilder, #pictura");
+      const projectTabContents = document.querySelectorAll("#gamercoach, #gamelab, #pricesphere, #overbuilder, #private-media, #pictura");
       projectTabContents.forEach((content) => {
         content.classList.remove("active");
       });
 
-      const projectTabButtons = document.querySelectorAll(".project-tabs .tab-button");
+      const projectTabButtons = document.querySelectorAll(".dev-tabs .tab-button");
       projectTabButtons.forEach((button) => {
         button.classList.remove("active");
       });
@@ -679,7 +710,7 @@
         content.classList.remove("active");
       });
 
-      const workTabButtons = document.querySelectorAll(".project-tabs .tab-button[onclick*='showWorkProject']");
+      const workTabButtons = document.querySelectorAll(".work-tabs .tab-button");
       workTabButtons.forEach((button) => {
         button.classList.remove("active");
       });
