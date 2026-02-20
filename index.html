@@ -1,722 +1,718 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>安部健介 - プロフィール</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-
-      .profile-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        margin-bottom: 30px;
-      }
-
-      .header {
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        color: white;
-        padding: 60px 40px;
-        text-align: center;
-        position: relative;
-      }
-
-      .header::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-      }
-
-      .header-content {
-        position: relative;
-        z-index: 1;
-      }
-
-      .name {
-        font-size: 3rem;
-        font-weight: 700;
-        margin-bottom: 10px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-      }
-
-      .english-name {
-        font-size: 1.2rem;
-        opacity: 0.9;
-        margin-bottom: 20px;
-      }
-
-      .birth-date {
-        font-size: 1.1rem;
-        opacity: 0.8;
-      }
-
-      .content {
-        padding: 40px;
-      }
-
-      .section {
-        margin-bottom: 50px;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        font-weight: 600;
-        color: #4f46e5;
-        margin-bottom: 30px;
-        position: relative;
-        padding-bottom: 10px;
-      }
-
-      .section-title::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 50px;
-        height: 3px;
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
-        border-radius: 2px;
-      }
-
-      .section-description {
-        color: #6b7280;
-        margin-bottom: 30px;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-
-      .timeline {
-        position: relative;
-        padding-left: 30px;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 15px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: linear-gradient(to bottom, #4f46e5, #7c3aed);
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: 30px;
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -37px;
-        top: 30px;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background: #4f46e5;
-      }
-
-      .period {
-        font-weight: 600;
-        color: #4f46e5;
-        font-size: 1.1rem;
-        margin-bottom: 8px;
-      }
-
-      .title {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-        color: #1f2937;
-      }
-
-      .description {
-        color: #6b7280;
-        margin-bottom: 15px;
-      }
-
-      .link {
-        display: inline-block;
-        background: #10b981;
-        color: white;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 6px 12px;
-        border-radius: 4px;
-        margin: 2px 4px 2px 0;
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-
-      .project-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      }
-
-      .project-title {
-        font-size: 1.5rem;
-        font-weight: 600;
-        color: #1f2937;
-        margin-bottom: 15px;
-      }
-
-      .project-year {
-        color: #4f46e5;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .project-description {
-        color: #6b7280;
-        margin-bottom: 15px;
-      }
-
-      .tech-stack {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 15px;
-      }
-
-      .tech-tag {
-        background: linear-gradient(135deg, #4f46e5, #7c3aed);
-        color: white;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-      }
-
-      .project-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .profile-image {
-        margin-bottom: 20px;
-      }
-
-      .profile-photo {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .social-links {
-        margin-top: 20px;
-      }
-
-      .social-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.2);
-        color: white;
-        text-decoration: none;
-        padding: 10px 16px;
-        border-radius: 25px;
-        font-weight: 500;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        font-size: 0.9rem;
-      }
-
-      .social-link svg {
-        width: 18px;
-        height: 18px;
-      }
-
-      .project-image {
-        margin-bottom: 20px;
-      }
-
-      .project-photo {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 10px;
-      }
-
-      .project-tabs {
-        display: flex;
-        border-bottom: 2px solid #e5e7eb;
-        margin-bottom: 30px;
-        overflow-x: auto;
-      }
-
-      .tab-button {
-        background: none;
-        border: none;
-        padding: 15px 25px;
-        cursor: pointer;
-        font-size: 1.1rem;
-        font-weight: 500;
-        color: #6b7280;
-        border-bottom: 3px solid transparent;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-      }
-
-      .tab-button.active {
-        color: #4f46e5;
-        border-bottom-color: #4f46e5;
-      }
-
-      .tab-content {
-        display: none;
-      }
-
-      .tab-content.active {
-        display: block;
-      }
-
-      .project-detail {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      }
-
-      .project-images {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        margin-bottom: 25px;
-      }
-
-      .project-images img {
-        width: 100%;
-        max-height: 300px;
-        object-fit: contain;
-        border-radius: 10px;
-        background-color: #f9fafb;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 10px;
-        }
-
-        .name {
-          font-size: 2rem;
-        }
-
-        .header {
-          padding: 40px 20px;
-        }
-
-        .content {
-          padding: 20px;
-        }
-
-        .timeline {
-          padding-left: 20px;
-        }
-
-        .timeline-item::before {
-          left: -27px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安部健介 - プロフィール / レジュメ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F7F7F5',
+            ink: '#1A1A1A',
+            accent: '#C84B31', /* Terracotta */
+            muted: '#6B7280',
+            border: '#E5E5E0'
+          },
+          fontFamily: {
+            title: ['"Shippori Mincho"', 'serif'],
+            sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
+            en: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
         }
       }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <div class="profile-card">
-        <div class="header">
-          <div class="header-content">
-            <div class="profile-image">
-              <img src="images/profile.webp" alt="安部健介" class="profile-photo" />
+    }
+  </script>
+  <style>
+    body {
+      background-color: #F7F7F5;
+      color: #1A1A1A;
+      font-family: "Zen Kaku Gothic New", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      selection-background-color: #C84B31;
+      selection-color: #FFF;
+      line-height: 1.8;
+    }
+    
+    ::selection {
+      background: #C84B31;
+      color: #FFF;
+    }
+
+    /* Minimal Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F7F7F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D1D1CB;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #A3A39A;
+    }
+    
+    /* Subtle background grid pattern reminiscent of print media / design mockups */
+    .grid-bg {
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .text-balance {
+      text-wrap: balance;
+    }
+    
+    .title-font {
+      font-family: "Shippori Mincho", serif;
+    }
+    .en-font {
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+    
+    .tag {
+      border: 1px solid #1A1A1A;
+      border-radius: 999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.8rem;
+      font-family: "Plus Jakarta Sans", "Zen Kaku Gothic New", sans-serif;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1A1A1A;
+      background: transparent;
+    }
+    
+    .tag-accent {
+      border-color: #C84B31;
+      color: #C84B31;
+    }
+    
+    .timeline-item {
+      border-left: 1px solid #1A1A1A;
+      padding-left: 2rem;
+      position: relative;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -5.5px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      background-color: #F7F7F5;
+      border: 2px solid #1A1A1A;
+      border-radius: 50%;
+    }
+    
+    .dropcap::first-letter {
+      font-family: "Shippori Mincho", serif;
+      font-size: 4.5rem;
+      font-weight: 800;
+      color: #C84B31;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.75rem;
+      margin-top: 0.5rem;
+      text-shadow: 2px 2px 0px rgba(200,75,49,0.1);
+    }
+
+    /* Magazine aesthetic image filter for non-existent images (demo) */
+    .editorial-image-treatment {
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(120%);
+    }
+
+  </style>
+</head>
+<body class="grid-bg min-h-screen">
+  <div class="max-w-[1400px] mx-auto xl:border-x xl:border-border min-h-screen flex flex-col md:flex-row">
+    <!-- Left Column (Sticky Profile & Skills) -->
+    <aside class="w-full md:w-[38%] lg:w-[35%] xl:w-[30%] md:border-r border-border md:sticky top-0 h-auto md:h-screen overflow-y-auto p-8 lg:p-12 flex flex-col bg-paper/90 backdrop-blur-md z-10 transition-all duration-500">
+      <div class="mb-12">
+        <div class="mb-10 w-32 h-32 xl:w-40 xl:h-40 mx-auto overflow-hidden rounded-2xl border border-border shadow-sm">
+          <img src="images/profile.webp" alt="安部健介" class="w-full h-full object-cover" />
+        </div>
+        <div class="en-font text-xs uppercase tracking-[0.25em] text-accent mb-4 font-bold">Resume</div>
+        <div class="text-sm font-medium tracking-widest text-ink/60 mb-2">アベ ケンスケ</div>
+        <h1 class="title-font text-5xl lg:text-showcase font-black text-ink mb-6 leading-[1.1] tracking-tight" style="font-size: clamp(3rem, 5vw, 4.5rem);">安部 健介</h1>
+        
+        <div class="h-px w-12 bg-accent mb-8"></div>
+
+        <div class="flex flex-col gap-3 mt-8 text-sm en-font">
+          <div class="flex items-center justify-between border-b border-border/60 pb-2">
+            <span class="text-ink/40 uppercase tracking-wider text-xs font-bold">Date of Birth</span>
+            <span class="font-semibold text-ink/90">1994.10.11 (31)</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-border/60 pb-2">
+            <span class="text-ink/40 uppercase tracking-wider text-xs font-bold">Gender</span>
+            <span class="font-semibold text-ink/90">Male</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="space-y-12 mt-auto pt-8">
+        <!-- Tech Stack -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+              <span class="w-8 h-px bg-ink/20"></span>
+              言語
+            </h3>
+            <div class="flex flex-col gap-3">
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">Python</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">5 Years</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">SQL</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">4 Years</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">Java</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">3 Years</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">PHP</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">2 Years</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">JavaScript</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">1 Year</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">TypeScript</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">1 Year</span>
+              </div>
+              <div class="flex items-center justify-between border-b border-border/40 pb-1">
+                <span class="text-sm font-bold text-ink">Node.js</span>
+                <span class="text-[10px] font-bold text-accent en-font uppercase tracking-tighter">1 Year</span>
+              </div>
             </div>
-            <h1 class="name">安部健介</h1>
-            <p class="english-name">Kensuke Abe</p>
-            <p class="birth-date">1994年福岡生まれ、Webサービスの開発とそれに関わるプロジェクトに従事しています。</p>
-            <div class="social-links">
-              <a href="https://github.com/abeken1011" class="social-link" target="_blank">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                  />
-                </svg>
-                GitHub
-              </a>
+          </div>
+          
+          <div>
+            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+              <span class="w-8 h-px bg-ink/20"></span>
+              フレームワーク
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Next.js</span>
+              <span class="tag">Django</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Laravel</span>
+              <span class="tag">Serverless</span>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+              <span class="w-8 h-px bg-ink/20"></span>
+              クラウド / DevOps
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">AWS</span>
+              <span class="tag">Azure</span>
+              <span class="tag">GCP</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">CloudFormation</span>
+              <span class="tag">Jenkins</span>
+              <span class="tag">GitHub Actions</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes (EKS/AKS)</span>
+              <span class="tag">Firebase</span>
             </div>
           </div>
         </div>
-
-        <div class="content">
-          <!-- 学歴 -->
-          <section class="section">
-            <h2 class="section-title">学歴</h2>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="period">2010年〜2013年</div>
-                <div class="title">福岡県立香住丘高校</div>
-              </div>
-              <div class="timeline-item">
-                <div class="period">2013年〜2017年</div>
-                <div class="title">九州大学工学部 地球環境工学科 船舶海洋システム工学コース (指導教官 : 木村元)</div>
-                <div class="description">専攻は造船工学。配管をJavaでシミュレートして効率的な配置を模索する卒業論文を書きました。</div>
-                <a href="http://sysplan.nams.kyushu-u.ac.jp/gen/papers/paper2017/Kimura/SICE2017KimuraAbe.pdf" class="link" target="_blank"
-                  >卒業論文</a
-                >
-              </div>
-              <div class="timeline-item">
-                <div class="period">2017年〜2019年3月（中退）</div>
-                <div class="title">筑波大学 大学院 図書館情報メディア研究科 図書館情報メディア専攻 (指導教官 : 落合陽一)</div>
-                <div class="description">専攻は情報科学。機械学習について研究していました。</div>
-                <a href="https://digitalnature.slis.tsukuba.ac.jp/2017/04/kensuke-abe/" class="link" target="_blank">研究室ページ</a>
-              </div>
-            </div>
-          </section>
-
-          <!-- 職歴 -->
-          <section class="section">
-            <h2 class="section-title">職歴</h2>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="period">2018年4月〜2019年3月</div>
-                <div class="title">株式会社GamerCoach 代表取締役</div>
-                <div class="description">ゲームコーチングプラットフォームの運営。</div>
-                <a href="https://gamerszone.jp/post/1126" class="link" target="_blank">インタビュー記事</a>
-              </div>
-              <div class="timeline-item">
-                <div class="period">2019年4月〜2020年3月</div>
-                <div class="title">株式会社ラクスパートナーズ</div>
-                <div class="description">エンジニアとして従事。主にPython、クラウド周りの業務を担当。</div>
-              </div>
-              <div class="timeline-item">
-                <div class="period">2020年4月〜2025年3月</div>
-                <div class="title">個人事業主</div>
-                <div class="description">Python、PHP、AWS、Azureをはじめとするクラウドを利用したサービス開発。</div>
-              </div>
-              <div class="timeline-item">
-                <div class="period">2025年4月〜現在</div>
-                <div class="title">合同会社サムライトレード 代表取締役</div>
-                <div class="description">
-                  ソフトウェア開発、物販を行う会社の代表<br />会社で開発したプロジェクトは下記の「開発したプロジェクト」を参考
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 従事したプロジェクト -->
-          <section class="section">
-            <h2 class="section-title">従事したプロジェクト</h2>
-            <p class="section-description">主にクラウドアーキテクチャの構築とPython, JavaScript, PHPでの機能追加を行っています。</p>
-
-            <div class="project-tabs work-tabs">
-              <button class="tab-button active" onclick="showWorkProject('nlp')">自然言語処理</button>
-              <button class="tab-button" onclick="showWorkProject('aviation')">航空系データ処理</button>
-              <button class="tab-button" onclick="showWorkProject('fastapi')">FastAPI開発</button>
-              <button class="tab-button" onclick="showWorkProject('cms')">Headless CMS</button>
-              <button class="tab-button" onclick="showWorkProject('image')">画像処理</button>
-            </div>
-
-            <div id="nlp" class="tab-content active">
-              <div class="project-detail">
-                <div class="project-title">自然言語処理モデルの開発</div>
-                <div class="project-year">2019年4月〜2020年3月</div>
-                <div class="project-description">
-                  広告キャッチコピーの分析、婚活プラットフォームのメッセージの分析を担当。機械学習モデルでそれらのデータを分析し、ユーザーの属性や文章から結果につながる内容の解析を行いました。
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">MySQL</span>
-                  <span class="tech-tag">Ubuntu</span>
-                  <span class="tech-tag">Pandas</span>
-                  <span class="tech-tag">GCE</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="aviation" class="tab-content">
-              <div class="project-detail">
-                <div class="project-title">航空系Webサービスの大規模データ処理(ETL)開発</div>
-                <div class="project-year">2020年4月〜2020年9月</div>
-                <div class="project-description">
-                  航空系データの機能開発、保守業務、インフラのKubernetes移行。クラウド(Azure)を用いたデータ処理の一連パイプライン構築スキル。各種ストレージ、DBを利用したシステムを構築しました。
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">Azure</span>
-                  <span class="tech-tag">Kubernetes</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="fastapi" class="tab-content">
-              <div class="project-detail">
-                <div class="project-title">Python, FastAPIを用いたAPIサーバー開発</div>
-                <div class="project-year">2020年12月〜2021年9月</div>
-                <div class="project-description">
-                  サーバーレスプラットフォーム上でマイクロサービス的な開発手法をSwaggerで記述されたドキュメントに従いながら開発。S3やAuroraなどのクラウドサービスとの連携機能の開発を主に担当。
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">SQL</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">Swagger</span>
-                  <span class="tech-tag">AWS</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="cms" class="tab-content">
-              <div class="project-detail">
-                <div class="project-title">Strapiで開発されたHeadless CMSサーバーの保守運用</div>
-                <div class="project-year">2021年10月〜2022年9月</div>
-                <div class="project-description">
-                  Strapi、Node.js、PHPでの基本的な開発スキル、API Testerを利用したテストと保守運用を行っていました。
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">JavaScript</span>
-                  <span class="tech-tag">EC2</span>
-                  <span class="tech-tag">MySQL</span>
-                  <span class="tech-tag">Node.js</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="image" class="tab-content">
-              <div class="project-detail">
-                <div class="project-title">画像処理パイプラインの保守改修</div>
-                <div class="project-year">2022年10月〜2025年3月</div>
-                <div class="project-description">
-                  Jenkinsで構築された画像処理パイプラインの機能追加、保守改修を行っていました。サーバー全体の管理を担当して、クラウド周りの修正や更新、セキュリティ面の強化、PythonとGroovyで機能の追加を担当。
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Jenkins</span>
-                  <span class="tech-tag">Groovy</span>
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">AWS</span>
-                  <span class="tech-tag">EC2</span>
-                  <span class="tech-tag">Kubernetes</span>
-                  <span class="tech-tag">CloudFormation</span>
-                  <span class="tech-tag">Ubuntu</span>
-                  <span class="tech-tag">SQLite</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- 開発したプロジェクト -->
-          <section class="section">
-            <h2 class="section-title">開発したプロジェクト</h2>
-            <p class="section-description">個人開発、もしくは私が代表の会社で開発していたプロジェクト一覧</p>
-
-            <div class="project-tabs dev-tabs">
-              <button class="tab-button active" onclick="showProject('gamercoach')">GamerCoach</button>
-              <button class="tab-button" onclick="showProject('gamelab')">GameLab</button>
-              <button class="tab-button" onclick="showProject('pricesphere')">PriceSphere</button>
-              <button class="tab-button" onclick="showProject('overbuilder')">Overbuilder</button>
-              <button class="tab-button" onclick="showProject('private-media')">非公開のメディア</button>
-              <button class="tab-button" onclick="showProject('pictura')">Pictura</button>
-            </div>
-
-            <div id="gamercoach" class="tab-content active">
-              <div class="project-detail">
-                <div class="project-images">
-                  <img src="images/gamercoach/gamercoach.webp" alt="GamerCoach" />
-                </div>
-                <div class="project-title">GamerCoach</div>
-                <div class="project-year">2018年</div>
-                <div class="project-description">ゲームを教わりたいユーザーとゲームを教えたいコーチをつなげるプラットフォーム</div>
-                <div class="tech-stack">
-                  <span class="tech-tag">PHP</span>
-                  <span class="tech-tag">Laravel</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://prtimes.jp/main/html/rd/p/000000001.000035312.html" class="link" target="_blank">プレスリリース</a>
-                  <a href="https://gamerszone.jp/post/1126" class="link" target="_blank">インタビュー</a>
-                </div>
-              </div>
-            </div>
-
-            <div id="gamelab" class="tab-content">
-              <div class="project-detail">
-                <div class="project-images">
-                  <img src="images/gamelab/gamelab-logo.webp" alt="GameLab ロゴ" />
-                </div>
-                <div class="project-title">GameLab</div>
-                <div class="project-year">2020年</div>
-                <div class="project-description">eスポーツ攻略情報投稿サービス。一歩先のプレーを目指すeスポーツプレイヤーのためのメディア。</div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Python</span>
-                  <span class="tech-tag">FastAPI</span>
-                  <span class="tech-tag">React</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://prtimes.jp/main/html/rd/p/000000008.000035312.html" class="link" target="_blank">プレスリリース</a>
-                </div>
-              </div>
-            </div>
-
-            <div id="pricesphere" class="tab-content">
-              <div class="project-detail">
-                <div class="project-images">
-                  <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere トップページ" />
-                  <img src="images/pricesphere/pricesphere-detail.webp" alt="PriceSphere 詳細ページ" />
-                </div>
-                <div class="project-title">PriceSphere</div>
-                <div class="project-year">2025年</div>
-                <div class="project-description">アマゾンマーケットプレイス間の商品を比較し、価格差の大きい商品を抽出するサービス</div>
-                <div class="tech-stack">
-                  <span class="tech-tag">PHP</span>
-                  <span class="tech-tag">Laravel</span>
-                  <span class="tech-tag">EC2</span>
-                  <span class="tech-tag">LoadBalancer</span>
-                  <span class="tech-tag">CloudFormation</span>
-                  <span class="tech-tag">Supabase</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">Clerk</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://prtimes.jp/main/html/rd/p/000000001.000160309.html" class="link" target="_blank">プレスリリース</a>
-                </div>
-              </div>
-            </div>
-
-            <div id="overbuilder" class="tab-content">
-              <div class="project-detail">
-                <div class="project-images">
-                  <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP" />
-                  <img src="images/overbuilder/overbuilder-detail.webp" alt="Overbuilder 詳細ページ" />
-                </div>
-                <div class="project-title">Overbuilder</div>
-                <div class="project-year">2025年</div>
-                <div class="project-description">Overwatch2のスタジアムモードのビルド投稿サイト</div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">AWS Amplify</span>
-                  <span class="tech-tag">Supabase</span>
-                  <span class="tech-tag">PostgreSQL</span>
-                  <span class="tech-tag">Clerk</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="private-media" class="tab-content">
-              <div class="project-detail">
-                <div class="project-title">非公開のメディア</div>
-                <div class="project-year">2025年</div>
-                <div class="project-description">
-                  非公表<br />
-                  特定の人物に関する情報を複数のサイトからスクレイピング<br />
-                  その情報がどの人物に関する言及なのかをAIで抽出 人物の読みもAIで取得<br />
-                  それぞれのサイトの情報をフォーマットを整えサービス上に表示。<br />
-                  ECSでそれらの処理を1日1回実行。<br /><br />
-                  人物 : 3万人以上<br />
-                  投稿数 : 800万件以上
-                </div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">supabase</span>
-                  <span class="tech-tag">CloudFormation</span>
-                  <span class="tech-tag">ECS</span>
-                  <span class="tech-tag">python</span>
-                </div>
-              </div>
-            </div>
-
-            <div id="pictura" class="tab-content">
-              <div class="project-detail">
-                <div class="project-images">
-                  <img src="images/pictura/pictura-top.webp" alt="Pictura トップページ" />
-                  <img src="images/pictura/pictura-detail.webp" alt="Pictura 詳細ページ" />
-                </div>
-                <div class="project-title">Pictura</div>
-                <div class="project-year">2026年</div>
-                <div class="project-description">AIサムネイル生成サービス。Youtuberやコンテンツクリエイターのサムネイル制作をAIで支援</div>
-                <div class="tech-stack">
-                  <span class="tech-tag">Next.js</span>
-                  <span class="tech-tag">supabase</span>
-                  <span class="tech-tag">Stripe</span>
-                  <span class="tech-tag">Gemini API</span>
-                  <span class="tech-tag">Nano-Banana</span>
-                </div>
-                <div class="project-links">
-                  <a href="https://pictura.tech" class="link" target="_blank">サービスサイト</a>
-                  <a href="https://prtimes.jp/main/html/rd/p/000000002.000160309.html" class="link" target="_blank">プレスリリース</a>
-                </div>
-              </div>
-            </div>
-          </section>
+        
+        <!-- Certifications -->
+        <div>
+          <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+            <span class="w-8 h-px bg-ink/20"></span>
+            資格
+          </h3>
+          <div class="flex flex-col gap-2">
+            <span class="tag font-en tracking-wide text-left justify-start w-fit border-transparent bg-ink/5">TOEIC 730 (2016.10)</span>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
+      
+    </aside>
+    
+    <!-- Right Column (Scrollable Content) -->
+    <main class="w-full md:w-[62%] lg:w-[65%] xl:w-[70%] p-8 lg:p-16 xl:p-24 bg-paper/60 backdrop-blur-sm shadow-[inset_1px_0_0_rgba(0,0,0,0.05)]">
+      
+      <!-- Summary -->
+      <section class="mb-28">
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">SUMMARY</h2>
+        <div class="h-px bg-ink/10 w-full mb-10 relative">
+          <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
+        </div>
+        
+        <div class="text-ink/85 leading-loose max-w-4xl space-y-6">
+          <p>
+            大学院在学中に株式会社GamerCoachを起業し、プロダクトマネージャーとしてゲームコーチングプラットフォームの運営に携わった。ユーザーインタビューやSNS運用、記事執筆、オフラインイベント運営、広告運用など多岐にわたる業務を担当し、登録ユーザー5000人以上のサービスに成長させた。
+          </p>
+          <p>
+            その後、会社を解散し株式会社ラクスパートナーズに新卒入社し機械学習エンジニアとして、広告キャッチコピーの分析業務に従事。7年分の広告運用データから成果の出るキャッチコピーを判別するモデルを作成し、非エンジニア職でも利用できるようクラウド上に実装した。
+          </p>
+          <p>
+            個人事業主では業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、主にAWSを利用したクラウド基盤の構築や、API開発、データ処理基盤の構築などを行った。特に画像処理システムでは、Jenkinsパイプラインの保守改修やクラウドコスト削減、セキュリティ対策など、幅広い業務を担当した。
+          </p>
+          <p>
+            2025年からは合同会社ＳａｍｕｒａｉＴｒａｄｅを経営し、フルスタックエンジニアとしてYouTubeサムネイル生成サービスやAIを活用したメディアなど、複数のC向けサービスを立ち上げ、運営している。特に非公開メディアでは10万ユーザー、100万アクセスを記録し、Terraformで構築したパイプラインにより全自動で記事を更新している。大量データ処理と安定稼働するインフラ構築、AIを活用した高速コーディングを得意としている。
+          </p>
+        </div>
+      </section>
 
-  <script>
-    function showProject(projectId) {
-      // 開発したプロジェクト用のタブ切り替え
-      const projectTabContents = document.querySelectorAll("#gamercoach, #gamelab, #pricesphere, #overbuilder, #private-media, #pictura");
-      projectTabContents.forEach((content) => {
-        content.classList.remove("active");
-      });
+      <!-- Experience -->
+      <section class="mb-24">
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">EXPERIENCE</h2>
+        <div class="h-px bg-ink/10 w-full mb-16 relative">
+          <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
+        </div>
+        
+        <div class="space-y-16 lg:space-y-24">
+          
+          <!-- SamuraiTrade -->
+          <article class="timeline-item">
+            <header class="mb-6">
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-accent mb-3 flex items-center gap-2">
+                2025.04 — 現在
+                <span class="w-12 h-px bg-accent/30 hidden md:block"></span>
+              </div>
+              <h3 class="title-font text-3xl font-extrabold text-ink mb-2">合同会社ＳａｍｕｒａｉＴｒａｄｅ</h3>
+              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">代表 / フルスタックエンジニア / Product Manager</div>
+            </header>
+            <div class="text-ink/80 mb-8 leading-loose tracking-wide max-w-3xl space-y-4">
+              <p>AIでコーディングが高速化されたことによりプロダクト開発のために昨年起業。C向けのWebサービスを開発し4つのサービスをリリース。アイデア選定、プログラミング、インフラ周りは全て自身で行い、必要に応じて外注に作業を依頼し、サービスをマネジメント。</p>
+              <p>アイデア選定は海外で流行っていて、かつ日本で運営されているサービスが少ないネタを中心に選定。</p>
+              <p>非公開のメディアは2025年の9月から運営しておりのべ10万ユーザー、100万アクセスを記録。こちらのメディアではデータのスクレイピング、取得したデータのETL、データをAIでフィルタリングしメディアに表示するパイプラインをTerraformで構築し、全自動で記事を更新。</p>
+              <p>Amazon物販サービスではKeepaというサービスを利用し、日本と米国のAmazonの合計4000万の商品全ての価格を比較し、手数料と送料を計算し最も価格差が大きい商品を検索するサービスを開発しました。</p>
+              <p>中規模のデータ(1テーブル800万件~)を処理し安定稼動するインフラをIaacで構築すること、そしてAI活用した高速なコーディングが可能です。</p>
+            </div>
+            
+            <div class="bg-paper border border-ink/10 p-8 rounded-sm relative overflow-hidden group/card mb-8">
+              <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-accent m-2"></div>
+              <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-accent m-2"></div>
+              
+              <h4 class="font-bold text-ink mb-5 en-font uppercase tracking-widest text-xs border-b border-ink/10 pb-3 flex justify-between items-center">
+                Launched Services & Press Releases
+              </h4>
+              <ul class="list-none space-y-6 text-ink/80 font-medium">
+                <li>
+                  <div class="flex items-start mb-2">
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">01</span> 
+                    <div>
+                      <span class="block">YouTubeサムネイル生成サービス (Pictura)</span>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal">AIによる画像解析・生成機能を搭載したサムネイル作成支援ツール。デザインの知識がなくても、動画の内容に最適なサムネイルを数クリックで生成可能なWebサービス。</p>
+                      <div class="mt-4 mb-4 overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[480px]">
+                        <img src="images/pictura/pictura-top.webp" alt="Pictura" class="w-full h-auto object-cover" />
+                      </div>
+                      <div class="flex flex-wrap gap-3 mt-2">
+                        <a href="https://pictura.tech/" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                          サービスURL
+                        </a>
+                        <a href="https://prtimes.jp/main/html/rd/p/000000002.000160309.html" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                          プレスリリース
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-start">
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">02</span> 
+                    <div>
+                      <span>掲示板キュレーションAIメディア (非公開)</span>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">複数サービスをスクレイピングし、5万人の人物データと800万件の掲示板の書き込みを取得。AIで人物にひもづく情報かの判定を行いメディアに表示。Terraformで構築した自動化パイプラインにより、無人での記事更新を実現。累計10万ユーザー、100万PVを達成。</p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-start mb-2">
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">03</span> 
+                    <div>
+                      <span>Amazon物販サービス (閉鎖済み)</span>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa APIを利用し、日米Amazonの4,000万点以上の商品を全件比較。送料・関税計算・競合出品者数などのデータを統合し、最も個数あたりの利益が大きい商品を探せるサービス</p>
+                      <div class="mt-4 mb-4 flex flex-wrap gap-4">
+                        <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
+                          <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere Top" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
+                          <img src="images/pricesphere/pricesphere-detail.webp" alt="PriceSphere Detail" class="w-full h-auto object-cover" />
+                        </div>
+                      </div>
+                      <div class="mt-2 text-left">
+                        <a href="https://www.commercepick.com/archives/63862" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                          プレスリリース
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="flex items-start">
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">04</span> 
+                    <div>
+                      <span>Overwatch 攻略情報投稿サービス (閉鎖済み)</span>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">OverwatchというFPSゲームのスタジアムモードの攻略情報投稿サービス。</p>
+                      <div class="mt-4 mb-4 flex flex-wrap gap-4">
+                        <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
+                          <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP" class="w-full h-auto object-cover" />
+                        </div>
+                        <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
+                          <img src="images/overbuilder/overbuilder-detail.webp" alt="Overbuilder Detail" class="w-full h-auto object-cover" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              
+            <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-8">
+              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">言語:</span>
+                  <span class="text-ink/70">Python, PHP, JavaScript, TypeScript</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">チームサイズ:</span>
+                  <span class="text-ink/70">1人〜4人</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">大規模データ処理(ETL)</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Next.js</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">TypeScript</span>
+              </div>
+            </div>
+            </div>
+          </article>
+          
+          <!-- Freelance (Individual Business Owner) -->
+          <article class="timeline-item">
+            <header class="mb-6">
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3 flex items-center gap-2">
+                2020.04 — 2025.03
+              </div>
+              <h3 class="title-font text-3xl font-extrabold text-ink mb-2">個人事業主</h3>
+              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">バックエンドエンジニア</div>
+            </header>
+            <div class="text-ink/80 mb-10 leading-loose tracking-wide max-w-3xl">
+              業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、AWSを主に利用しクラウド開発基盤の構築やAPI開発に従事
+            </div>
+            
+            <div class="flex flex-col gap-12">
+              <!-- Project 5: 画像処理システム保守運用 -->
+              <div class="border-l-2 border-ink/10 pl-8 relative">
+                <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink border border-ink rounded-full"></div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2022.10 — 2025.03</div>
+                <h4 class="font-extrabold text-ink mb-4 title-font text-xl">画像処理システム保守運用</h4>
+                <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
+                  <p>Jenkinsで構築された画像処理パイプラインの保守運用。動画を取り込み、COLMAPを利用し三次元の点群データに変換するJenkinsパイプラインの保守改修を行なった。</p>
+                  <p>画像処理のため、パイプライン部分はGroovy、処理内容はPythonで記述。JenkinsのKubernetesアドオンを利用してGPUが利用可能なEKSインフラの保守改修を担当しました。</p>
+                  <p>クラウドの保守改修ではセキュリティ対応としてVPC内部に閉じたインフラを構築。外部からのアクセス遮断、エンドユーザーのIP制限、Kubernetesの開放ポート制限などを実装しました。</p>
+                  <p>またクラウドのコスト削減も実施。1動画あたりのコストと最低限必要なインスタンスサイズの算出、実行時間から必要なクラウドコストを計算。KubernetesのControl PlaneとWorker Nodeごとのインスタンスを定義し、Terraformで実装しました。</p>
+                  <p>Python機能の保守改修では、COLMAP（点群データ処理ライブラリ）の既存コードを読み解き、必要な新規機能の実装を行いました。</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">言語:</span>
+                      <span class="text-ink/70">Python, Groovy</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">チームサイズ:</span>
+                      <span class="text-ink/70">全2名</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Jenkins</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon EKS</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon EC2</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon VPC</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQLite</span>
+                  </div>
+                </div>
+              </div>
 
-      const projectTabButtons = document.querySelectorAll(".dev-tabs .tab-button");
-      projectTabButtons.forEach((button) => {
-        button.classList.remove("active");
-      });
+              <!-- Project 4: Headless CMSサーバーの保守運用 -->
+              <div class="border-l-2 border-ink/10 pl-8 relative">
+                <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.12 — 2022.09</div>
+                <h4 class="font-extrabold text-ink mb-4 title-font text-xl">Headless CMSサーバーの保守運用</h4>
+                <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
+                  <p>Strapiを用いて開発されたサーバーの保守運用。AWSアーキテクチャのサービス開発、保守運用を担当しました。</p>
+                  <p>主にAPIの実装を担当し、OpenAPIでAPI仕様を定義。定義された仕様に基づき、APIの実装を行いました。</p>
+                  <p>テスト作成の際はTalend API Testerを活用し、ツールを用いた効率的なテストを実装しました。</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">言語:</span>
+                      <span class="text-ink/70">JavaScript, Node.js</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">チームサイズ:</span>
+                      <span class="text-ink/70">全4名</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Strapi</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS Lambda</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">API Gateway</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">DynamoDB</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
+                  </div>
+                </div>
+              </div>
 
-      document.getElementById(projectId).classList.add("active");
-      event.target.classList.add("active");
-    }
+              <!-- Project 3: AWSでのアーキテクチャ構築 -->
+              <div class="border-l-2 border-ink/10 pl-8 relative">
+                <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.10 — 2021.11</div>
+                <h4 class="font-extrabold text-ink mb-4 title-font text-xl">AWSでのアーキテクチャ構築</h4>
+                <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
+                  <p>AWS上でのアーキテクチャ全体像を検討し、CloudFormationを利用してデプロイしました。</p>
+                  <p>エンドユーザーのアクセスに対するセキュリティ対策として、API GatewayにWAFとCognitoを連携。安全なアクセス管理を実現しました。</p>
+                  <p>また、CI/CDパイプラインを構築し、CodeCommitのコードが自動的に反映される仕組みを実装しました。</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">言語:</span>
+                      <span class="text-ink/70">Python, SQL</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">チームサイズ:</span>
+                      <span class="text-ink/70">全2名</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CloudFormation</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">WAF</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cognito</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeBuild</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeCommit</span>
+                  </div>
+                </div>
+              </div>
 
-    function showWorkProject(projectId) {
-      // 従事したプロジェクト用のタブ切り替え
-      const workTabContents = document.querySelectorAll("#nlp, #aviation, #fastapi, #cms, #image");
-      workTabContents.forEach((content) => {
-        content.classList.remove("active");
-      });
+              <!-- Project 2: 飲食業界の管理システム開発 -->
+              <div class="border-l-2 border-ink/10 pl-8 relative">
+                <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.12 — 2021.09</div>
+                <h4 class="font-extrabold text-ink mb-4 title-font text-xl">飲食業界の管理システム開発</h4>
+                <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
+                  <p>飲食業界の発注・在庫管理など、B向けシステムの開発に従事。サーバーレスプラットフォーム上でのマイクロサービス的な開発手法を採用しました。</p>
+                  <p>Swaggerで記述されたドキュメントに基づき、Serverless Frameworkを利用してAWS Lambda上でのAPI開発を担当。</p>
+                  <p>データがExcelで格納されていたため、S3やAuroraなど各種AWSサービスと連携させた機能を実装しました。</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">言語:</span>
+                      <span class="text-ink/70">Python</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">チームサイズ:</span>
+                      <span class="text-ink/70">全4名</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Serverless</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS Lambda</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">S3</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Aurora</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
+                  </div>
+                </div>
+              </div>
 
-      const workTabButtons = document.querySelectorAll(".work-tabs .tab-button");
-      workTabButtons.forEach((button) => {
-        button.classList.remove("active");
-      });
+              <!-- Project 1: 航空系Webサービスの大規模データ処理(ETL)開発 -->
+              <div class="border-l-2 border-ink/10 pl-8 relative">
+                <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/10 border border-ink/20 rounded-full"></div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.04 — 2020.09</div>
+                <h4 class="font-extrabold text-ink mb-4 title-font text-xl">航空系Webサービスの大規模データ処理(ETL)開発</h4>
+                <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
+                  <p>航空データの解析と、それを処理するパイプラインの構築。公的機関から発行される時系列データの取り込み機能を開発しました。</p>
+                  <p>時間ごとの気温、風速、気圧などの情報を取り込み、自社サービスで利用可能な形式に変換。Azure Data Factoryを利用して、取得データをストレージとDBに保存するパイプラインを構築しました。</p>
+                  <p>システムのKubernetesへの移行に伴い、パイプラインをDocker化。イメージ構築と動作確認を行うフローを整備しました。</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
+                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">言語:</span>
+                      <span class="text-ink/70">Python</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                      <span class="text-accent opacity-60">チームサイズ:</span>
+                      <span class="text-ink/70">チーム6名（全体19名）</span>
+                    </div>
+                  </div>
+                  <div class="flex flex-wrap gap-1.5">
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Azure Data Factory</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Databricks</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQL Server</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AKS</span>
+                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cosmos DB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- RAKUS Partners -->
+          <article class="timeline-item">
+            <header class="mb-5">
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3">2019.04 — 2020.03</div>
+              <h3 class="title-font text-2xl font-extrabold text-ink mb-1">株式会社ラクスパートナーズ</h3>
+              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">Machine Learning Engineer</div>
+            </header>
+            <div class="text-ink/80 mb-6 leading-loose tracking-wide max-w-3xl">
+              大学院で機械学習について研究していた実績を活かし、自然言語処理に関する業務を担当。広告キャッチコピーの分析業務を行い、7年分の広告運用データからどのキャッチコピーが最も成果が出るのかを判別するモデルを作成。広告データのうち時系列、広告予算、クリック率、成約率など複数の情報から目的関数をクリック率、成約率においてそれらを予測。広告キャッチコピーを分ち書きして、それらの単語を時系列データとしてモデルに挿入し予測する機能を実装した。当時github上に公開されていた自然言語処理モデルやKaggleでスコアの高いモデルを利用して実装。また、作成したモデルを非エンジニア職の方も利用できるようにクラウド上に実装。
+            </div>
+            <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-4">
+              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">言語:</span>
+                  <span class="text-ink/70">Python</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">チームサイズ:</span>
+                  <span class="text-ink/70">3名</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Firebase</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Google App Engine</span>
+              </div>
+            </div>
+          </article>
+          
+          <!-- GamerCoach -->
+          <article class="timeline-item">
+            <header class="mb-5">
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3">2018.04 — 2019.03</div>
+              <h3 class="title-font text-2xl font-extrabold text-ink mb-1">株式会社GamerCoach</h3>
+              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">代表 / Product Manager</div>
+            </header>
+            <div class="text-ink/80 mb-6 leading-loose tracking-wide max-w-3xl">
+              大学院在学中にゲームコーチングプラットフォームを運営する会社を起業. 大学院同期のエンジニアとプラットフォームを開発し、主にサイト開発以外を担当。ユーザーインタビューを行い、不便な箇所や必要な機能を定義。SNS運用、記事執筆を行いマーケティングを担当。ユーザー、コーチへの営業。オフラインイベントの運営。広告運用や記事執筆の際は外注に発注し、マネジメントを行なった。登録ユーザーは5000人以上。
+            </div>
+            <div class="mt-4 mb-8 overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-2xl">
+              <img src="images/gamercoach/gamercoach.webp" alt="GamerCoach" class="w-full h-auto object-cover" />
+            </div>
 
-      document.getElementById(projectId).classList.add("active");
-      event.target.classList.add("active");
-    }
-  </script>
+            <!-- Related Links -->
+            <div class="flex flex-col gap-2 mb-6">
+              <a href="https://prtimes.jp/main/html/rd/p/000000001.000035312.html" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                プレスリリース
+              </a>
+              <a href="https://gamerszone.jp/post/1126" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                インタビュー：現役筑波大生が挑む、eスポーツのコーチング市場
+              </a>
+              <a href="https://www.youtube.com/watch?v=C8qwoBISfLc&t=88s" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                WOWOW様 オフラインイベント共同運営動画
+              </a>
+            </div>
+
+
+
+            <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-4">
+              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">言語:</span>
+                  <span class="text-ink/70">PHP</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-accent opacity-60">チームサイズ:</span>
+                  <span class="text-ink/70">2名（全体7名）</span>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">プロダクトマネジメント</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">PHP</span>
+                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
+              </div>
+            </div>
+          </article>
+          
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="mb-28">
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">EDUCATION</h2>
+        <div class="h-px bg-ink/10 w-full mb-16 relative">
+          <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
+        </div>
+        
+        <div class="space-y-12">
+          <article class="timeline-item">
+            <header>
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3">2013.04 — 2017.03</div>
+              <h3 class="title-font text-2xl font-extrabold text-ink mb-1">九州大学</h3>
+              <div class="text-base font-semibold text-ink/70 mt-2 flex items-center">
+                工学部 地球環境工学科
+                <span class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-ink/5 border border-ink/20 text-ink/70 font-bold">卒業・修了</span>
+              </div>
+              <p class="text-sm text-ink/70 mt-4 leading-relaxed">
+                船舶海洋工学分野を専攻。卒業論文は「干渉を無視した最短経路の重なり具合に着目した配管経路自動設計法」
+              </p>
+
+            </header>
+          </article>
+
+          <article class="timeline-item">
+            <header>
+              <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3">2017.04 — 2019.03</div>
+              <h3 class="title-font text-2xl font-extrabold text-ink mb-1">筑波大学 大学院（修士）</h3>
+              <div class="text-base font-semibold text-ink/70 mt-2 flex items-center">
+                図書館情報メディア研究科 情報学専攻 
+                <span class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-accent/10 border border-accent/20 text-accent font-bold">中退</span>
+              </div>
+              <p class="text-sm text-ink/70 mt-4 leading-relaxed">
+                情報学の理解を深めるため院進を機に興味のある研究室に進学。機械学習に関する研究を行い在学中に起業したため中退
+              </p>
+              <div class="mt-4">
+                <a href="https://digitalnature.slis.tsukuba.ac.jp/2017/04/kensuke-abe/" target="_blank" class="inline-flex items-center gap-2 text-[11px] font-bold text-accent border border-accent/20 px-3 py-1 bg-accent/5 hover:bg-accent hover:text-white transition-all duration-300">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  研究室ページ
+                </a>
+              </div>
+            </header>
+          </article>
+        </div>
+      </section>
+
+      <footer class="mt-32 pt-12 border-t-2 border-ink flex justify-between items-center en-font w-full">
+        <div class="font-bold text-ink"></div>
+        <div class="uppercase tracking-[0.3em] font-black text-[10px] text-accent/80"></div>
+      </footer>
+      
+    </main>
+    
+  </div>
+</body>
 </html>
