@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,144 +8,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            paper: '#F7F7F5',
-            ink: '#1A1A1A',
-            accent: '#C84B31', /* Terracotta */
-            muted: '#6B7280',
-            border: '#E5E5E0'
-          },
-          fontFamily: {
-            title: ['"Shippori Mincho"', 'serif'],
-            sans: ['"Zen Kaku Gothic New"', 'sans-serif'],
-            en: ['"Plus Jakarta Sans"', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #F7F7F5;
-      color: #1A1A1A;
-      font-family: "Zen Kaku Gothic New", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.8;
-    }
-    
-    ::selection {
-      background: #C84B31;
-      color: #FFF;
-    }
-
-    /* Minimal Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F7F7F5;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #D1D1CB;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #A3A39A;
-    }
-    
-    /* Subtle background grid pattern reminiscent of print media / design mockups */
-    .grid-bg {
-      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
-                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    
-    .text-balance {
-      text-wrap: balance;
-    }
-    
-    .title-font {
-      font-family: "Shippori Mincho", serif;
-    }
-    .en-font {
-      font-family: "Plus Jakarta Sans", sans-serif;
-    }
-    
-    .tag {
-      border: 1px solid #1A1A1A;
-      border-radius: 999px;
-      padding: 0.25rem 0.75rem;
-      font-size: 0.8rem;
-      font-family: "Plus Jakarta Sans", "Zen Kaku Gothic New", sans-serif;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #1A1A1A;
-      background: transparent;
-    }
-    
-    .tag-accent {
-      border-color: #C84B31;
-      color: #C84B31;
-    }
-    
-    .timeline-item {
-      border-left: 1px solid #1A1A1A;
-      padding-left: 2rem;
-      position: relative;
-    }
-    
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -5.5px;
-      top: 8px;
-      width: 10px;
-      height: 10px;
-      background-color: #F7F7F5;
-      border: 2px solid #1A1A1A;
-      border-radius: 50%;
-    }
-    
-    .dropcap::first-letter {
-      font-family: "Shippori Mincho", serif;
-      font-size: 4.5rem;
-      font-weight: 800;
-      color: #C84B31;
-      float: left;
-      line-height: 0.8;
-      margin-right: 0.75rem;
-      margin-top: 0.5rem;
-      text-shadow: 2px 2px 0px rgba(200,75,49,0.1);
-    }
-
-    /* Magazine aesthetic image filter for non-existent images (demo) */
-    .editorial-image-treatment {
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(120%);
-    }
-
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Shippori+Mincho:wght@400;500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <script src="js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="grid-bg min-h-screen">
   <div class="max-w-[1400px] mx-auto xl:border-x xl:border-border min-h-screen flex flex-col md:flex-row">
     <!-- Left Column (Sticky Profile & Skills) -->
-    <aside class="w-full md:w-[38%] lg:w-[35%] xl:w-[30%] md:border-r border-border md:sticky top-0 h-auto md:h-screen overflow-y-auto p-8 lg:p-12 flex flex-col bg-paper/90 backdrop-blur-md z-10 transition-all duration-500">
+    <aside
+      class="w-full md:w-[38%] lg:w-[35%] xl:w-[30%] md:border-r border-border md:sticky top-0 h-auto md:h-screen overflow-y-auto p-8 lg:p-12 flex flex-col bg-paper/90 backdrop-blur-md z-10 transition-all duration-500">
       <div class="mb-12">
         <div class="mb-10 w-32 h-32 xl:w-40 xl:h-40 mx-auto overflow-hidden rounded-2xl border border-border shadow-sm">
           <img src="images/profile.webp" alt="安部健介" class="w-full h-full object-cover" />
         </div>
         <div class="en-font text-xs uppercase tracking-[0.25em] text-accent mb-4 font-bold">Resume</div>
         <div class="text-sm font-medium tracking-widest text-ink/60 mb-2">アベ ケンスケ</div>
-        <h1 class="title-font text-5xl lg:text-showcase font-black text-ink mb-6 leading-[1.1] tracking-tight" style="font-size: clamp(3rem, 5vw, 4.5rem);">安部 健介</h1>
-        
+        <h1 class="title-font text-5xl lg:text-showcase font-black text-ink mb-6 leading-[1.1] tracking-tight"
+          style="font-size: clamp(3rem, 5vw, 4.5rem);">安部 健介</h1>
+
         <div class="h-px w-12 bg-accent mb-8"></div>
 
         <div class="flex flex-col gap-3 mt-8 text-sm en-font">
@@ -158,12 +42,13 @@
           </div>
         </div>
       </div>
-      
+
       <div class="space-y-12 mt-auto pt-8">
         <!-- Tech Stack -->
         <div class="space-y-8">
           <div>
-            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+            <h3
+              class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
               <span class="w-8 h-px bg-ink/20"></span>
               言語
             </h3>
@@ -198,9 +83,10 @@
               </div>
             </div>
           </div>
-          
+
           <div>
-            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+            <h3
+              class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
               <span class="w-8 h-px bg-ink/20"></span>
               フレームワーク
             </h3>
@@ -214,7 +100,8 @@
           </div>
 
           <div>
-            <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+            <h3
+              class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
               <span class="w-8 h-px bg-ink/20"></span>
               クラウド / DevOps
             </h3>
@@ -232,31 +119,35 @@
             </div>
           </div>
         </div>
-        
+
         <!-- Certifications -->
         <div>
-          <h3 class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
+          <h3
+            class="en-font uppercase tracking-[0.2em] text-[10px] font-extrabold text-ink/50 mb-4 flex items-center gap-3">
             <span class="w-8 h-px bg-ink/20"></span>
             資格
           </h3>
           <div class="flex flex-col gap-2">
-            <span class="tag font-en tracking-wide text-left justify-start w-fit border-transparent bg-ink/5">TOEIC 730 (2016.10)</span>
+            <span class="tag font-en tracking-wide text-left justify-start w-fit border-transparent bg-ink/5">TOEIC 730
+              (2016.10)</span>
           </div>
         </div>
       </div>
-      
+
     </aside>
-    
+
     <!-- Right Column (Scrollable Content) -->
-    <main class="w-full md:w-[62%] lg:w-[65%] xl:w-[70%] p-8 lg:p-16 xl:p-24 bg-paper/60 backdrop-blur-sm shadow-[inset_1px_0_0_rgba(0,0,0,0.05)]">
-      
+    <main
+      class="w-full md:w-[62%] lg:w-[65%] xl:w-[70%] p-8 lg:p-16 xl:p-24 bg-paper/60 backdrop-blur-sm shadow-[inset_1px_0_0_rgba(0,0,0,0.05)]">
+
       <!-- Summary -->
       <section class="mb-28">
-        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">SUMMARY</h2>
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">
+          SUMMARY</h2>
         <div class="h-px bg-ink/10 w-full mb-10 relative">
           <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
         </div>
-        
+
         <div class="text-ink/85 leading-loose max-w-4xl space-y-6">
           <p>
             大学院在学中に株式会社GamerCoachを起業し、プロダクトマネージャーとしてゲームコーチングプラットフォームの運営に携わった。ユーザーインタビューやSNS運用、記事執筆、オフラインイベント運営、広告運用など多岐にわたる業務を担当し、登録ユーザー5000人以上のサービスに成長させた。
@@ -265,7 +156,8 @@
             その後、会社を解散し株式会社ラクスパートナーズに新卒入社し機械学習エンジニアとして、広告キャッチコピーの分析業務に従事。7年分の広告運用データから成果の出るキャッチコピーを判別するモデルを作成し、非エンジニア職でも利用できるようクラウド上に実装した。
           </p>
           <p>
-            個人事業主では業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、主にAWSを利用したクラウド基盤の構築や、API開発、データ処理基盤の構築などを行った。特に画像処理システムでは、Jenkinsパイプラインの保守改修やクラウドコスト削減、セキュリティ対策など、幅広い業務を担当した。
+            個人事業主では業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless
+            CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、主にAWSを利用したクラウド基盤の構築や、API開発、データ処理基盤の構築などを行った。特に画像処理システムでは、Jenkinsパイプラインの保守改修やクラウドコスト削減、セキュリティ対策など、幅広い業務を担当した。
           </p>
           <p>
             2025年からは合同会社ＳａｍｕｒａｉＴｒａｄｅを経営し、フルスタックエンジニアとしてYouTubeサムネイル生成サービスやAIを活用したメディアなど、複数のC向けサービスを立ち上げ、運営している。特に非公開メディアでは10万ユーザー、100万アクセスを記録し、Terraformで構築したパイプラインにより全自動での記事更新を実現している。大量データ処理と安定稼働するインフラ構築、AIを活用した高速コーディングを得意としている。
@@ -275,13 +167,14 @@
 
       <!-- Experience -->
       <section class="mb-24">
-        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">EXPERIENCE</h2>
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">
+          EXPERIENCE</h2>
         <div class="h-px bg-ink/10 w-full mb-16 relative">
           <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
         </div>
-        
+
         <div class="space-y-16 lg:space-y-24">
-          
+
           <!-- SamuraiTrade -->
           <article class="timeline-item">
             <header class="mb-6">
@@ -290,40 +183,55 @@
                 <span class="w-12 h-px bg-accent/30 hidden md:block"></span>
               </div>
               <h3 class="title-font text-3xl font-extrabold text-ink mb-2">合同会社ＳａｍｕｒａｉＴｒａｄｅ</h3>
-              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">代表 / フルスタックエンジニア / Product Manager</div>
+              <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">代表 / フルスタックエンジニア / Product Manager
+              </div>
             </header>
             <div class="text-ink/80 mb-8 leading-loose tracking-wide max-w-3xl space-y-4">
-              <p>AIによるコーディングの高速化を背景に、プロダクト開発のため2025年に起業。C向けWebサービスを4つリリース。コンセプト設計、プログラミング、インフラ構築の全工程を自ら手掛け、必要に応じて外部パートナーへのディレクションを行い、プロダクトをマネジメントしている。</p>
+              <p>
+                AIによるコーディングの高速化を背景に、プロダクト開発のため2025年に起業。C向けWebサービスを4つリリース。コンセプト設計、プログラミング、インフラ構築の全工程を自ら手掛け、必要に応じて外部パートナーへのディレクションを行い、プロダクトをマネジメントしている。
+              </p>
               <p>プロダクト選定においては、海外のトレンドを分析し、国内市場で未開拓かつ需要が見込まれる領域を中心に行っている。</p>
-              <p>2025年9月から運営している非公開メディアでは、のべ10万ユーザー、100万アクセスを記録。データのスクレイピングからETL処理、AIによるコンテンツフィルタリングまでの一連のパイプラインをTerraformで構築し、完全自動での記事更新体制を確立している。</p>
+              <p>
+                2025年9月から運営している非公開メディアでは、のべ10万ユーザー、100万アクセスを記録。データのスクレイピングからETL処理、AIによるコンテンツフィルタリングまでの一連のパイプラインをTerraformで構築し、完全自動での記事更新体制を確立している。
+              </p>
               <p>Amazon物販支援サービスではKeepa APIを活用し、日米Amazonの計4,000万件以上の商品データから価格差・手数料・送料を集計し、利益率の高い商品を抽出する検索エンジンを開発した。</p>
               <p>800万件規模の中規模データを効率的に処理し、安定稼動するインフラをIaCで構築すること、およびAIを駆使した高速な開発サイクルを実現することを得意としている。</p>
             </div>
-            
+
             <div class="bg-paper border border-ink/10 p-8 rounded-sm relative overflow-hidden group/card mb-8">
               <div class="absolute top-0 left-0 w-3 h-3 border-t-2 border-l-2 border-accent m-2"></div>
               <div class="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 border-accent m-2"></div>
-              
-              <h4 class="font-bold text-ink mb-5 en-font uppercase tracking-widest text-xs border-b border-ink/10 pb-3 flex justify-between items-center">
+
+              <h4
+                class="font-bold text-ink mb-5 en-font uppercase tracking-widest text-xs border-b border-ink/10 pb-3 flex justify-between items-center">
                 Launched Services & Press Releases
               </h4>
               <ul class="list-none space-y-6 text-ink/80 font-medium">
                 <li>
                   <div class="flex items-start mb-2">
-                    <span class="text-accent font-bold mr-3 en-font opacity-50">01</span> 
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">01</span>
                     <div>
                       <span class="block">YouTubeサムネイル生成サービス (Pictura)</span>
-                      <p class="text-[11px] text-ink/80 mt-1 font-normal">AIによる画像解析・生成機能を搭載したサムネイル作成支援ツール。デザインの知識がなくても、動画の内容に最適なサムネイルを数クリックで生成可能なWebサービス。</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal">
+                        AIによる画像解析・生成機能を搭載したサムネイル作成支援ツール。デザインの知識がなくても、動画の内容に最適なサムネイルを数クリックで生成可能なWebサービス。</p>
                       <div class="mt-4 mb-4 overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[480px]">
                         <img src="images/pictura/pictura-top.webp" alt="Pictura" class="w-full h-auto object-cover" />
                       </div>
                       <div class="flex flex-wrap gap-3 mt-2">
-                        <a href="https://pictura.tech/" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
-                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <a href="https://pictura.tech/" target="_blank"
+                          class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
                           サービスURL
                         </a>
-                        <a href="https://prtimes.jp/main/html/rd/p/000000002.000160309.html" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
-                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <a href="https://prtimes.jp/main/html/rd/p/000000002.000160309.html" target="_blank"
+                          class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
                           プレスリリース
                         </a>
                       </div>
@@ -332,30 +240,39 @@
                 </li>
                 <li>
                   <div class="flex items-start">
-                    <span class="text-accent font-bold mr-3 en-font opacity-50">02</span> 
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">02</span>
                     <div>
                       <span>掲示板キュレーションAIメディア (非公開)</span>
-                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">複数サービスをスクレイピングし、5万人の人物データと800万件の掲示板の書き込みを取得。AIで人物にひもづく情報かの判定を行いメディアに表示。Terraformで構築した自動化パイプラインにより、無人での記事更新を実現。累計10万ユーザー、100万PVを達成。</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">
+                        複数サービスをスクレイピングし、5万人の人物データと800万件の掲示板の書き込みを取得。AIで人物にひもづく情報かの判定を行いメディアに表示。Terraformで構築した自動化パイプラインにより、無人での記事更新を実現。累計10万ユーザー、100万PVを達成。
+                      </p>
                     </div>
                   </div>
                 </li>
                 <li>
                   <div class="flex items-start mb-2">
-                    <span class="text-accent font-bold mr-3 en-font opacity-50">03</span> 
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">03</span>
                     <div>
                       <span>Amazon物販サービス (閉鎖済み)</span>
-                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa APIを利用し、日米Amazonの4,000万点以上の商品を全件比較。送料・関税計算・競合出品者数などのデータを統合し、最も個数あたりの利益が大きい商品を探せるサービス</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa
+                        APIを利用し、日米Amazonの4,000万点以上の商品を全件比較。送料・関税計算・競合出品者数などのデータを統合し、最も個数あたりの利益が大きい商品を探せるサービス</p>
                       <div class="mt-4 mb-4 flex flex-wrap gap-4">
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
-                          <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere Top" class="w-full h-auto object-cover" />
+                          <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere Top"
+                            class="w-full h-auto object-cover" />
                         </div>
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
-                          <img src="images/pricesphere/pricesphere-detail.webp" alt="PriceSphere Detail" class="w-full h-auto object-cover" />
+                          <img src="images/pricesphere/pricesphere-detail.webp" alt="PriceSphere Detail"
+                            class="w-full h-auto object-cover" />
                         </div>
                       </div>
                       <div class="mt-2 text-left">
-                        <a href="https://www.commercepick.com/archives/63862" target="_blank" class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
-                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        <a href="https://www.commercepick.com/archives/63862" target="_blank"
+                          class="text-xs text-accent hover:underline inline-flex w-fit items-center gap-1 font-medium bg-accent/5 px-2 py-1 border border-accent/10">
+                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                          </svg>
                           プレスリリース
                         </a>
                       </div>
@@ -364,44 +281,52 @@
                 </li>
                 <li>
                   <div class="flex items-start">
-                    <span class="text-accent font-bold mr-3 en-font opacity-50">04</span> 
+                    <span class="text-accent font-bold mr-3 en-font opacity-50">04</span>
                     <div>
                       <span>Overwatch 攻略情報投稿サービス (閉鎖済み)</span>
-                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">OverwatchというFPSゲームのスタジアムモードの攻略情報投稿サービス。</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">
+                        OverwatchというFPSゲームのスタジアムモードの攻略情報投稿サービス。</p>
                       <div class="mt-4 mb-4 flex flex-wrap gap-4">
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
-                          <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP" class="w-full h-auto object-cover" />
+                          <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP"
+                            class="w-full h-auto object-cover" />
                         </div>
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
-                          <img src="images/overbuilder/overbuilder-detail.webp" alt="Overbuilder Detail" class="w-full h-auto object-cover" />
+                          <img src="images/overbuilder/overbuilder-detail.webp" alt="Overbuilder Detail"
+                            class="w-full h-auto object-cover" />
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
               </ul>
-              
-            <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-8">
-              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
-                <div class="flex items-center gap-2">
-                  <span class="text-accent opacity-60">言語:</span>
-                  <span class="text-ink/70">Python, PHP, JavaScript, TypeScript</span>
+
+              <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-8">
+                <div
+                  class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div class="flex items-center gap-2">
+                    <span class="text-accent opacity-60">言語:</span>
+                    <span class="text-ink/70">Python, PHP, JavaScript, TypeScript</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-accent opacity-60">チームサイズ:</span>
+                    <span class="text-ink/70">1人〜4人</span>
+                  </div>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="text-accent opacity-60">チームサイズ:</span>
-                  <span class="text-ink/70">1人〜4人</span>
+                <div class="flex flex-wrap gap-1.5">
+                  <span
+                    class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
+                  <span
+                    class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">大規模データ処理(ETL)</span>
+                  <span
+                    class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Next.js</span>
+                  <span
+                    class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">TypeScript</span>
                 </div>
               </div>
-              <div class="flex flex-wrap gap-1.5">
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">大規模データ処理(ETL)</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Next.js</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">TypeScript</span>
-              </div>
-            </div>
             </div>
           </article>
-          
+
           <!-- Freelance (Individual Business Owner) -->
           <article class="timeline-item">
             <header class="mb-6">
@@ -412,24 +337,28 @@
               <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">バックエンドエンジニア</div>
             </header>
             <div class="text-ink/80 mb-10 leading-loose tracking-wide max-w-3xl">
-              業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、AWSを主に利用しクラウド開発基盤の構築やAPI開発に従事
+              業務委託としてバックエンドエンジニアを務め、航空系Webサービスの大規模データ処理(ETL)開発、飲食業界の管理システム開発、AWSでのアーキテクチャ構築、Headless
+              CMSサーバーの保守運用、画像処理システム保守運用など、多岐にわたるプロジェクトに参画。Python、JavaScript、Node.js、Groovyなどの言語を使用し、AWSを主に利用しクラウド開発基盤の構築やAPI開発に従事
             </div>
-            
+
             <div class="flex flex-col gap-12">
               <!-- Project 5: 画像処理システム保守運用 -->
               <div class="border-l-2 border-ink/10 pl-8 relative">
                 <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink border border-ink rounded-full"></div>
-                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2022.10 — 2025.03</div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2022.10 — 2025.03
+                </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">画像処理システム保守運用</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>Jenkinsで構築された画像処理パイプラインの保守運用。動画を取り込み、COLMAPを利用して三次元の点群データに変換するJenkinsパイプラインの保守改修を行った。</p>
                   <p>画像処理パイプライン（Groovy）と処理ロジック（Python）で構成され、JenkinsのKubernetesアドオンを利用したGPU対応EKSインフラの保守改修を担当した。</p>
                   <p>インフラの保守改修では、セキュリティ対応としてVPC内部に閉じたアーキテクチャを再構築。外部からのアクセス遮断、エンドユーザーのIP制限、Kubernetesの開放ポート制限などを実装した。</p>
-                  <p>また、クラウドコストの削減も実施。1動画あたりの処理コストを分析し、最適なインスタンスサイズを算出。KubernetesのControl PlaneとWorker Nodeごとのインスタンス定義をTerraformで最適化した。</p>
+                  <p>また、クラウドコストの削減も実施。1動画あたりの処理コストを分析し、最適なインスタンスサイズを算出。KubernetesのControl PlaneとWorker
+                    Nodeごとのインスタンス定義をTerraformで最適化した。</p>
                   <p>Pythonによる機能改修では、COLMAP（点群データ処理ライブラリ）の既存コードを解析し、独自の要件に基づいた新規機能の実装を担当した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div
+                    class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                     <div class="flex items-center gap-2">
                       <span class="text-accent opacity-60">言語:</span>
                       <span class="text-ink/70">Python, Groovy</span>
@@ -440,12 +369,21 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Jenkins</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon EKS</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon EC2</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon VPC</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQLite</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Jenkins</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon
+                      EKS</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon
+                      EC2</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Amazon
+                      VPC</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Terraform</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQLite</span>
                   </div>
                 </div>
               </div>
@@ -453,7 +391,8 @@
               <!-- Project 4: Headless CMSサーバーの保守運用 -->
               <div class="border-l-2 border-ink/10 pl-8 relative">
                 <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
-                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.12 — 2022.09</div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.12 — 2022.09
+                </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">Headless CMSサーバーの保守運用</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>Strapiを用いて開発されたサーバーの保守運用。AWSアーキテクチャのサービス開発、保守運用を担当した。</p>
@@ -461,7 +400,8 @@
                   <p>テスト作成の際はTalend API Testerを活用し、ツールを用いた効率的なテストを実装した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div
+                    class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                     <div class="flex items-center gap-2">
                       <span class="text-accent opacity-60">言語:</span>
                       <span class="text-ink/70">JavaScript, Node.js</span>
@@ -472,12 +412,20 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Strapi</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS Lambda</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">API Gateway</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">DynamoDB</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Strapi</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS
+                      Lambda</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">API
+                      Gateway</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">DynamoDB</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
                   </div>
                 </div>
               </div>
@@ -485,7 +433,8 @@
               <!-- Project 3: AWSでのアーキテクチャ構築 -->
               <div class="border-l-2 border-ink/10 pl-8 relative">
                 <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
-                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.10 — 2021.11</div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2021.10 — 2021.11
+                </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">AWSでのアーキテクチャ構築</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>AWS上でのアーキテクチャ全体像を検討し、CloudFormationを利用してデプロイした。</p>
@@ -493,7 +442,8 @@
                   <p>また、CI/CDパイプラインを構築し、CodeCommitのコードが自動的に反映される仕組みを実装した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div
+                    class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                     <div class="flex items-center gap-2">
                       <span class="text-accent opacity-60">言語:</span>
                       <span class="text-ink/70">Python, SQL</span>
@@ -504,11 +454,16 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CloudFormation</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">WAF</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cognito</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeBuild</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeCommit</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CloudFormation</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">WAF</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cognito</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeBuild</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">CodeCommit</span>
                   </div>
                 </div>
               </div>
@@ -516,7 +471,8 @@
               <!-- Project 2: 飲食業界の管理システム開発 -->
               <div class="border-l-2 border-ink/10 pl-8 relative">
                 <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/30 border border-ink/30 rounded-full"></div>
-                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.12 — 2021.09</div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.12 — 2021.09
+                </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">飲食業界の管理システム開発</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>飲食業界の発注・在庫管理など、B向けシステムの開発に従事。サーバーレスプラットフォーム上でのマイクロサービス的な開発手法を採用した。</p>
@@ -524,7 +480,8 @@
                   <p>データがExcelで格納されていたため、S3やAuroraなど各種AWSサービスと連携させた機能を実装した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div
+                    class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                     <div class="flex items-center gap-2">
                       <span class="text-accent opacity-60">言語:</span>
                       <span class="text-ink/70">Python</span>
@@ -535,11 +492,17 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Serverless</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS Lambda</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">S3</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Aurora</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Serverless</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AWS
+                      Lambda</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">S3</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Aurora</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Docker</span>
                   </div>
                 </div>
               </div>
@@ -547,15 +510,18 @@
               <!-- Project 1: 航空系Webサービスの大規模データ処理(ETL)開発 -->
               <div class="border-l-2 border-ink/10 pl-8 relative">
                 <div class="absolute -left-[5px] top-0 w-2 h-2 bg-ink/10 border border-ink/20 rounded-full"></div>
-                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.04 — 2020.09</div>
+                <div class="text-[10px] font-bold text-accent mb-3 en-font tracking-widest uppercase">2020.04 — 2020.09
+                </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">航空系Webサービスの大規模データ処理(ETL)開発</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>航空データの解析と、それを処理するパイプラインの構築。公的機関から発行される時系列データの取り込み機能を開発した。</p>
-                  <p>時間ごとの気温、風速、気圧などの情報を取り込み、自社サービスで利用可能な形式に変換。Azure Data Factoryを利用して、取得データをストレージとDBに保存するパイプラインを構築した。</p>
+                  <p>時間ごとの気温、風速、気圧などの情報を取り込み、自社サービスで利用可能な形式に変換。Azure Data Factoryを利用して、取得データをストレージとDBに保存するパイプラインを構築した。
+                  </p>
                   <p>システムのKubernetesへの移行に伴い、パイプラインをDocker化。イメージ構築と動作確認を行うフローを整備した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
-                  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+                  <div
+                    class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                     <div class="flex items-center gap-2">
                       <span class="text-accent opacity-60">言語:</span>
                       <span class="text-ink/70">Python</span>
@@ -566,17 +532,25 @@
                     </div>
                   </div>
                   <div class="flex flex-wrap gap-1.5">
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Azure Data Factory</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Databricks</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQL Server</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AKS</span>
-                    <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cosmos DB</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Azure
+                      Data Factory</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Databricks</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">SQL
+                      Server</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">AKS</span>
+                    <span
+                      class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Cosmos
+                      DB</span>
                   </div>
                 </div>
               </div>
             </div>
           </article>
-          
+
           <!-- RAKUS Partners -->
           <article class="timeline-item">
             <header class="mb-5">
@@ -585,10 +559,12 @@
               <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">Machine Learning Engineer</div>
             </header>
             <div class="text-ink/80 mb-6 leading-loose tracking-wide max-w-3xl">
-              大学院での機械学習の研究実績を活かし、自然言語処理に関する業務を担当。広告キャッチコピーの分析業務を行い、7年分の広告運用データから成果の出るキャッチコピーを判別するモデルを作成。時系列、予算、クリック率、成約率など複数の変数から目的変数を予測する。キャッチコピーをわかち書きし、それらの単語を時系列データとしてモデルに組み込む機能を実装した。既存の高性能モデルやGitHub上の最新手法、Kaggleの上位解法を参考に実装。また、作成したモデルを非エンジニア職でも利用できるよう、Google App Engine等を用いてクラウド上に実装した。
+              大学院での機械学習の研究実績を活かし、自然言語処理に関する業務を担当。広告キャッチコピーの分析業務を行い、7年分の広告運用データから成果の出るキャッチコピーを判別するモデルを作成。時系列、予算、クリック率、成約率など複数の変数から目的変数を予測する。キャッチコピーをわかち書きし、それらの単語を時系列データとしてモデルに組み込む機能を実装した。既存の高性能モデルやGitHub上の最新手法、Kaggleの上位解法を参考に実装。また、作成したモデルを非エンジニア職でも利用できるよう、Google
+              App Engine等を用いてクラウド上に実装した。
             </div>
             <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-4">
-              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+              <div
+                class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                 <div class="flex items-center gap-2">
                   <span class="text-accent opacity-60">言語:</span>
                   <span class="text-ink/70">Python</span>
@@ -599,12 +575,15 @@
                 </div>
               </div>
               <div class="flex flex-wrap gap-1.5">
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Firebase</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Google App Engine</span>
+                <span
+                  class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Firebase</span>
+                <span
+                  class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">Google
+                  App Engine</span>
               </div>
             </div>
           </article>
-          
+
           <!-- GamerCoach -->
           <article class="timeline-item">
             <header class="mb-5">
@@ -621,16 +600,28 @@
 
             <!-- Related Links -->
             <div class="flex flex-col gap-2 mb-6">
-              <a href="https://prtimes.jp/main/html/rd/p/000000001.000035312.html" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              <a href="https://prtimes.jp/main/html/rd/p/000000001.000035312.html" target="_blank"
+                class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
                 プレスリリース
               </a>
-              <a href="https://gamerszone.jp/post/1126" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              <a href="https://gamerszone.jp/post/1126" target="_blank"
+                class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
                 インタビュー：現役筑波大生が挑む、eスポーツのコーチング市場
               </a>
-              <a href="https://www.youtube.com/watch?v=C8qwoBISfLc&t=88s" target="_blank" class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              <a href="https://www.youtube.com/watch?v=C8qwoBISfLc&t=88s" target="_blank"
+                class="text-xs text-accent hover:underline flex items-center gap-1 font-medium">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
                 WOWOW様 オフラインイベント共同運営動画
               </a>
             </div>
@@ -638,7 +629,8 @@
 
 
             <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-4">
-              <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
+              <div
+                class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-bold text-ink/40 en-font uppercase tracking-widest">
                 <div class="flex items-center gap-2">
                   <span class="text-accent opacity-60">言語:</span>
                   <span class="text-ink/70">PHP</span>
@@ -649,23 +641,27 @@
                 </div>
               </div>
               <div class="flex flex-wrap gap-1.5">
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">プロダクトマネジメント</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">PHP</span>
-                <span class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
+                <span
+                  class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">プロダクトマネジメント</span>
+                <span
+                  class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">PHP</span>
+                <span
+                  class="font-mono text-[9px] px-2 py-0.5 bg-ink/5 text-ink/80 font-bold border border-ink/10">MySQL</span>
               </div>
             </div>
           </article>
-          
+
         </div>
       </section>
 
       <!-- Education -->
       <section class="mb-28">
-        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">EDUCATION</h2>
+        <h2 class="en-font text-5xl md:text-7xl font-black text-ink/5 -ml-1 md:-ml-2 mb-4 tracking-tighter select-none">
+          EDUCATION</h2>
         <div class="h-px bg-ink/10 w-full mb-16 relative">
           <div class="absolute left-0 top-0 h-full w-24 bg-accent"></div>
         </div>
-        
+
         <div class="space-y-12">
           <article class="timeline-item">
             <header>
@@ -673,7 +669,8 @@
               <h3 class="title-font text-2xl font-extrabold text-ink mb-1">九州大学</h3>
               <div class="text-base font-semibold text-ink/70 mt-2 flex items-center">
                 工学部 地球環境工学科
-                <span class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-ink/5 border border-ink/20 text-ink/70 font-bold">卒業・修了</span>
+                <span
+                  class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-ink/5 border border-ink/20 text-ink/70 font-bold">卒業・修了</span>
               </div>
               <p class="text-sm text-ink/70 mt-4 leading-relaxed">
                 船舶海洋工学分野を専攻。卒業論文は「干渉を無視した最短経路の重なり具合に着目した配管経路自動設計法」
@@ -687,15 +684,20 @@
               <div class="en-font text-[11px] font-bold tracking-[0.25em] text-ink/40 mb-3">2017.04 — 2019.03</div>
               <h3 class="title-font text-2xl font-extrabold text-ink mb-1">筑波大学 大学院（修士）</h3>
               <div class="text-base font-semibold text-ink/70 mt-2 flex items-center">
-                図書館情報メディア研究科 情報学専攻 
-                <span class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-accent/10 border border-accent/20 text-accent font-bold">中退</span>
+                図書館情報メディア研究科 情報学専攻
+                <span
+                  class="ml-4 font-mono text-[10px] px-2 py-0.5 bg-accent/10 border border-accent/20 text-accent font-bold">中退</span>
               </div>
               <p class="text-sm text-ink/70 mt-4 leading-relaxed">
                 情報学の理解を深めるため、大学院進学を機に専門の研究室へ進学。機械学習に関する研究に従事し、在学中に起業したため中退した。
               </p>
               <div class="mt-4">
-                <a href="https://digitalnature.slis.tsukuba.ac.jp/2017/04/kensuke-abe/" target="_blank" class="inline-flex items-center gap-2 text-[11px] font-bold text-accent border border-accent/20 px-3 py-1 bg-accent/5 hover:bg-accent hover:text-white transition-all duration-300">
-                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                <a href="https://digitalnature.slis.tsukuba.ac.jp/2017/04/kensuke-abe/" target="_blank"
+                  class="inline-flex items-center gap-2 text-[11px] font-bold text-accent border border-accent/20 px-3 py-1 bg-accent/5 hover:bg-accent hover:text-white transition-all duration-300">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
                   研究室ページ
                 </a>
               </div>
@@ -708,9 +710,10 @@
         <div class="font-bold text-ink"></div>
         <div class="uppercase tracking-[0.3em] font-black text-[10px] text-accent/80"></div>
       </footer>
-      
+
     </main>
-    
+
   </div>
 </body>
+
 </html>

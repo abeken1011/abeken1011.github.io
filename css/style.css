@@ -1,0 +1,105 @@
+body {
+    background-color: #F7F7F5;
+    color: #1A1A1A;
+    font-family: "Zen Kaku Gothic New", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.8;
+}
+
+::selection {
+    background: #C84B31;
+    color: #FFF;
+}
+
+/* Minimal Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F7F7F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D1D1CB;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A3A39A;
+}
+
+/* Subtle background grid pattern reminiscent of print media / design mockups */
+.grid-bg {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.text-balance {
+    text-wrap: balance;
+}
+
+.title-font {
+    font-family: "Shippori Mincho", serif;
+}
+
+.en-font {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.tag {
+    border: 1px solid #1A1A1A;
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+    font-family: "Plus Jakarta Sans", "Zen Kaku Gothic New", sans-serif;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1A1A1A;
+    background: transparent;
+}
+
+.tag-accent {
+    border-color: #C84B31;
+    color: #C84B31;
+}
+
+.timeline-item {
+    border-left: 1px solid #1A1A1A;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -5.5px;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    background-color: #F7F7F5;
+    border: 2px solid #1A1A1A;
+    border-radius: 50%;
+}
+
+.dropcap::first-letter {
+    font-family: "Shippori Mincho", serif;
+    font-size: 4.5rem;
+    font-weight: 800;
+    color: #C84B31;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.75rem;
+    margin-top: 0.5rem;
+    text-shadow: 2px 2px 0px rgba(200, 75, 49, 0.1);
+}
+
+/* Magazine aesthetic image filter for non-existent images (demo) */
+.editorial-image-treatment {
+    mix-blend-mode: multiply;
+    filter: grayscale(100%) contrast(120%);
+}
