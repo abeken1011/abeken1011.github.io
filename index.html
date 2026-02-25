@@ -188,7 +188,7 @@
             </header>
             <div class="text-ink/80 mb-8 leading-loose tracking-wide max-w-3xl space-y-4">
               <p>
-                AIによるコーディングの高速化を背景に、プロダクト開発のため2025年に起業。C向けWebサービスを4つリリース。プロダクト選定、プログラミング、インフラ構築の全工程を自ら手掛け、必要に応じて外部パートナーへのディレクションを行い、プロダクトをマネジメントしている。
+                AIによるコーディングの高速化を背景に、プロダクト開発のため起業。C向けWebサービスを4つリリース。プロダクト選定、プログラミング、インフラ構築の全工程を自ら手掛け、必要に応じて外部パートナーへのディレクションを行い、プロダクトをマネジメントしている。
               </p>
               <p>プロダクト選定においては、海外のトレンドを分析し、国内市場で未開拓かつ需要が見込まれる領域を中心に行っている。</p>
               <p>
@@ -244,7 +244,7 @@
                     <div>
                       <span>掲示板キュレーションAIメディア (非公開)</span>
                       <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">
-                        複数サービスをスクレイピングし、5万人の人物データと800万件の掲示板の書き込みを取得。AIで人物にひもづく情報かの判定を行いメディアに表示。Terraformで構築した自動化パイプラインにより、無人での記事更新を実現。累計10万ユーザー、100万PVを達成。
+                        複数サービスをスクレイピングし、5万人の人物データと800万件の掲示板の書き込みを取得。AIで人物にひもづく情報かの判定を行いメディアに表示。Terraformで構築した自動化パイプラインにより、無人での記事更新を実現。累計10万UU、100万PVを達成。
                       </p>
                     </div>
                   </div>
@@ -256,6 +256,12 @@
                       <span>Amazon物販サービス (閉鎖済み)</span>
                       <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa
                         APIを利用し、日米Amazonの4,000万点以上の商品を全件比較。送料・関税計算・競合出品者数などのデータを統合し、最も個数あたりの利益が大きい商品を探せるサービス</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa
+                        輸入(日本マーケットプレイスから米国マーケットプレイスへの発送)、輸出のそれぞれの項目で商品の検索が可能で私自身が利用した際は月商200万円、利益率20%を達成</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">Keepa
+                        Keepa
+                        APIは1時間ごとのトークンリミットが設定されており、トークン消化のために毎時商品検索を行い、トークン消費量を最小限に抑えて最も効率よく利益率が高い商品を発見できるアルゴリズムを設計し、実装を行った。
+                      </p>
                       <div class="mt-4 mb-4 flex flex-wrap gap-4">
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
                           <img src="images/pricesphere/pricesphere-top.webp" alt="PriceSphere Top"
@@ -286,6 +292,8 @@
                       <span>Overwatch 攻略情報投稿サービス (閉鎖済み)</span>
                       <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">
                         OverwatchというFPSゲームのスタジアムモードの攻略情報投稿サービス。</p>
+                      <p class="text-[11px] text-ink/80 mt-1 font-normal leading-relaxed">
+                        スタジアムモードに登場する20体以上のヒーローをのガイドラインの投稿が可能。</p>
                       <div class="mt-4 mb-4 flex flex-wrap gap-4">
                         <div class="overflow-hidden rounded-xl border border-ink/10 shadow-md max-w-[400px]">
                           <img src="images/overbuilder/overbuilder-ogp.webp" alt="Overbuilder OGP"
@@ -395,8 +403,8 @@
                 </div>
                 <h4 class="font-extrabold text-ink mb-4 title-font text-xl">Headless CMSサーバーの保守運用</h4>
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
-                  <p>Strapiを用いて開発されたサーバーの保守運用。AWSアーキテクチャのサービス開発、保守運用を担当した。</p>
-                  <p>主にAPIの実装を担当し、OpenAPIでAPI仕様を定義。定義された仕様に基づき、APIの実装を行った。</p>
+                  <p>「AWSでのアーキテクチャ構築」の項で設計したアーキテクチャ上のサービスの実装および保守運用業務を行った。</p>
+                  <p>Strapiを用いて開発されたサーバーの主にAPIの実装を担当し、OpenAPIでAPI仕様を定義。定義された仕様に基づき、APIの実装を行った。</p>
                   <p>テスト作成の際はTalend API Testerを活用し、ツールを用いた効率的なテストを実装した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
@@ -477,7 +485,7 @@
                 <div class="text-sm text-ink/80 mb-6 leading-relaxed space-y-4">
                   <p>飲食業界の発注・在庫管理など、B向けシステムの開発に従事。サーバーレスプラットフォーム上でのマイクロサービス的な開発手法を採用した。</p>
                   <p>Swaggerで記述されたドキュメントに基づき、Serverless Frameworkを利用してAWS Lambda上でのAPI開発を担当。</p>
-                  <p>データがExcelで格納されていたため、S3やAuroraなど各種AWSサービスと連携させた機能を実装した。</p>
+                  <p>Excelに格納されたデータを読み込み、S3やAuroraなど各種AWSサービスと連携させた機能を実装した。</p>
                 </div>
                 <div class="flex flex-col gap-3 pt-4 border-t border-ink/5">
                   <div
@@ -559,7 +567,7 @@
               <div class="text-sm font-semibold text-ink/50 en-font tracking-wide">Machine Learning Engineer</div>
             </header>
             <div class="text-ink/80 mb-6 leading-loose tracking-wide max-w-3xl">
-              大学院での機械学習の研究実績を活かし、自然言語処理に関する業務を担当。広告キャッチコピーの分析業務を行い、7年分の広告運用データから成果の出るキャッチコピーを判別するモデルを作成。時系列、予算、クリック率、成約率など複数の変数から目的変数を予測する。キャッチコピーをわかち書きし、それらの単語を時系列データとしてモデルに組み込む機能を実装した。既存の高性能モデルやGitHub上の最新手法、Kaggleの上位解法を参考に実装。また、作成したモデルを非エンジニア職でも利用できるよう、Google
+              大学院での機械学習の研究実績を活かし、自然言語処理に関する業務を担当。広告キャッチコピーの分析業務を行い、7年分の広告運用データから時系列、予算、クリック率、成約率など複数の変数を利用し、目的変数を予測するモデルを開発。キャッチコピーの効果測定を行った。キャッチコピーをわかち書きし、それらの単語を時系列データとしてモデルに組み込む機能を実装した。既存の高性能モデルやGitHub上の最新手法、Kaggleの上位解法を参考に実装。また、作成したモデルを非エンジニア職でも利用できるよう、Google
               App Engine等を用いてクラウド上に実装した。
             </div>
             <div class="flex flex-col gap-3 pt-4 border-t border-ink/5 mt-4">
